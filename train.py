@@ -48,3 +48,6 @@ if __name__ == '__main__':
             torch.save(net.state_dict(), weight_path)
             print('save successfully!')
         epoch += 1
+
+#remember to check batch_size!!!!!!!!!!!!!!!!!!!!!!!!!
+#adjust learning rate at the same time!!!!!!!!!!!
