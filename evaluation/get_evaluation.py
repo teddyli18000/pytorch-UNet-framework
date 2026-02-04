@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.metrics import confusion_matrix
 import cv2
 
-def keep_image_size_open_label(path, size=(256, 256)):
+def keep_image_size_open_label(path, size=(512, 384)):
     img = Image.open(path)
     temp = max(img.size)
     mask = Image.new('P', (temp, temp))
@@ -15,7 +15,7 @@ def keep_image_size_open_label(path, size=(256, 256)):
     mask = Image.fromarray(mask)
     return mask
 
-def keep_image_size_open_predict(path, size=(256, 256)):
+def keep_image_size_open_predict(path, size=(512, 384)):
     img = Image.open(path)
     temp = max(img.size)
     mask = Image.new('P', (temp, temp))
@@ -56,7 +56,7 @@ if __name__ == '__main__':
 
     res_miou = []
     for pred_im in os.listdir(predict_path):
-        label = keep_image_size_open_label(os.path.join(label_path,pred_im))
+        label = keep_image_size_open_label(os.path.join(label_path, pred_im))
         pred = keep_image_size_open_predict(os.path.join(predict_path,pred_im))
         l, p = np.array(label).astype(int), np.array(pred).astype(int)
         print(set(l.reshape(-1).tolist()),set(p.reshape(-1).tolist()))
