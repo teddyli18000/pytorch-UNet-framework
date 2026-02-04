@@ -141,5 +141,7 @@ cython_debug/
 params/
 *.pth
 
+pictures
 *.jpg
+*.jpeg
 *.png
