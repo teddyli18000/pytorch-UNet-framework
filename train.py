@@ -117,6 +117,7 @@ if __name__ == '__main__':
             torch.save(checkpoint_data, current_weight_path)
             print(f'\n[已存档] 第 {epoch} 轮模型已保存至 {current_weight_path}')
 
+        if not os.path.exists('params'): os.makedirs('params')
         torch.save(checkpoint_data, weight_path)  # master断点始终更新
 
         epoch += 1
