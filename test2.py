@@ -45,7 +45,6 @@ out_np = out_np.astype(np.uint8)
 # 创建 result 文件夹（如果不存在）
 result_dir = 'result'
 os.makedirs(result_dir, exist_ok=True)
-
 # save to result fold
 # # 处理文件名
 # base_name = os.path.basename(_input)                  # 获取文件名，例如 "image1.jpg"
