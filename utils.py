@@ -1,5 +1,6 @@
 from PIL import Image
 
+
 def keep_image_size_open(path, size=(512, 384)):
     """
     处理标签 (Mask)：必须使用最近邻插值 (Image.NEAREST)，
@@ -13,6 +14,7 @@ def keep_image_size_open(path, size=(512, 384)):
     # 【关键修改】必须加 resample=Image.NEAREST
     mask = mask.resize(size, resample=Image.NEAREST)
     return mask
+
 
 def keep_image_size_open_rgb(path, size=(512, 384)):
     """
