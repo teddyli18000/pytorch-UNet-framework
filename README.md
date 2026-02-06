@@ -22,19 +22,19 @@
         data/JPEGImages
     #### Storage address of the masks：
         data/SegmentationClass
-2. #### Run: 
+2. #### Train: 
        train.py
 3. #### Save path:
 
-    ##### (1).The train_image folder stores
+    ##### (1).The "train_image" folder stores
        Effect images generated during the training process
-    ##### (2).The params folder stores
+    ##### (2).The "params" folder stores
        Weights
 4. #### Test
-       Run test.py file to test images
-       Program store the test results in the source folder with the suffix "_predict"
+       Run test.py file to test images.
+       Program store the test results in the source folder with the suffix "_predict".
 
 ### Historical version
-    v.2.0 Add resume from breakpoint function
+    v.2.0 Add "resume from breakpoint" function
 
     v.1.0 Basic framework
