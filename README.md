@@ -6,7 +6,7 @@
     Build your own Unet network with PyTorch and train it on your own dataset.
 
 ### Current version
-    v.2.0 Add resume from breakpoint function
+    v2.0 Add resume from breakpoint function
 
 ### Underlying framework
 
@@ -36,6 +36,6 @@
        Program store the test results in the source folder with the suffix "_predict".
 
 ### Historical version
-    v.2.0 Add "resume from breakpoint" function
+    v2.0 Add "resume from breakpoint" function
 
-    v.1.0 Basic framework
+    v1.0 Basic framework
