@@ -1,1 +1,1 @@
-Put/Generate by program  weight here.
+Put/Generate by program weight here
