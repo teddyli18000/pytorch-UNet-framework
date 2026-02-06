@@ -24,7 +24,7 @@ if __name__ == '__main__':
     initial_lr = 1e-4
 
     # 梯度累加设置：真实 BatchSize = batch_size * accumulation_steps
-    # 显存占用看 batch_size (设为 2 非常安全)，训练效果看等效 BatchSize (2 * 4 = 8)
+    # 显存占用看 batch_size，训练效果看等效BatchSize (=batch_size*accumulation_steps)
     batch_size = 4
     accumulation_steps = 4
 
