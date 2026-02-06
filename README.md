@@ -1,22 +1,41 @@
-# pytorch-unet
-
-#### 介绍
-pytorch搭建自己的unet网络，训练自己的数据集。
-#### 软件架构
-pythorch
+# Pytorch-UNet-framework
 
 
-#### 安装教程
 
-1.  下载最新版本的pytorch就可以
+### Introduction
+    Build your own Unet network with PyTorch and train it on your own dataset.
 
-#### 使用说明
+### Current version
+    v2.0 Add resume from breakpoint function
 
-1.  数据集原图存放地址：data/JPEGImages   mask存放地址：data/SegmentationClass
-2.  直接运行train.py,其中train_image文件夹存储的是训练过程中的效果图
-3.  params文件夹保存权重
-4.  测试test.py，用来测试图片，测试结果存储在result文件夹中
+### Underlying framework
 
+    Python 3.13
 
-#### 视频地址
-B站：https://www.bilibili.com/video/BV11341127iK?spm_id_from=333.999.0.0
+    torch 2.9.1+cu128 ->2.10.0
+
+    torchvision 0.24.1+cu128 ->0.25.0
+
+### Instruction Manual
+
+1.  #### Prepare dataset:
+    #### Storage address of the original dataset images：
+        data/JPEGImages
+    #### Storage address of the masks：
+        data/SegmentationClass
+2. #### Train: 
+       train.py
+3. #### Save path:
+
+    ##### (1).The "train_image" folder stores
+       Effect images generated during the training process
+    ##### (2).The "params" folder stores
+       Weights
+4. #### Test
+       Run test.py file to test images.
+       Program store the test results in the source folder with the suffix "_predict".
+
+### Historical version
+    v2.0 Add "resume from breakpoint" function
+
+    v1.0 Basic framework

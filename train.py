@@ -13,7 +13,7 @@ from tools import LossLogger, get_split_loaders
 
 # 设置设备
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-weight_path = 'params/unet.pth'  # 用于恢复训练的最新断点文件
+weight_path = 'params/unet_resume.pth'  # 用于恢复训练的最新断点文件
 data_path = r'data'
 save_path = 'train_image'
 
