@@ -17,7 +17,11 @@ net = UNet(3).to(device)  # 3分类
 weights = 'params/unet.pth'
 if os.path.exists(weights):
     # 加上 map_location 确保在 CPU/GPU 都能跑
-    net.load_state_dict(torch.load(weights, map_location=device))
+    # 1. 先加载完整的断点字典
+    checkpoint = torch.load(weights, map_location=device, weights_only=False)
+
+    # 2. 从字典中提取出模型权重部分，再加载进网络
+    net.load_state_dict(checkpoint['model_state_dict'])
     print('Successfully loaded weights.')
 else:
     print('No weights found!!!')
@@ -45,28 +49,28 @@ print(f"Predicted classes: {set(out.reshape(-1).tolist())}")
 out_np = out.cpu().numpy().astype(np.uint8)
 out_np = out_np * 127  # 简单可视化映射
 
-# 保存到 result 文件夹
-result_dir = 'result'
-os.makedirs(result_dir, exist_ok=True)
-
-base_name = os.path.basename(_input)
-name_without_ext = os.path.splitext(base_name)[0]
-save_path = os.path.join(result_dir, f"{name_without_ext}_predict.png")
-
-cv2.imwrite(save_path, out_np)
-print(f"Result saved to {save_path}")
-
+# # 保存到 result 文件夹
+# result_dir = 'result'
+# os.makedirs(result_dir, exist_ok=True)
 #
-# #save to source folder
-# # 处理文件名
-# dir_name = os.path.dirname(_input)                  # 输入图片所在文件夹
-# base_name = os.path.basename(_input)               # 原文件名，例如 "image1.jpg"
-# name_without_ext = os.path.splitext(base_name)[0]  # 去掉扩展名，例如 "image1"
-# save_name = f"{name_without_ext}_output.png"       # 拼接成 "image1_output.png"
+# base_name = os.path.basename(_input)
+# name_without_ext = os.path.splitext(base_name)[0]
+# save_path = os.path.join(result_dir, f"{name_without_ext}_predict.png")
 #
-# # 保存路径
-# save_path = os.path.join(dir_name, save_name)
-#
-# # 保存结果
 # cv2.imwrite(save_path, out_np)
 # print(f"Result saved to {save_path}")
+
+
+# save to source folder
+# 处理文件名
+dir_name = os.path.dirname(_input)  # 输入图片所在文件夹
+base_name = os.path.basename(_input)  # 原文件名，例如 "image1.jpg"
+name_without_ext = os.path.splitext(base_name)[0]  # 去掉扩展名，例如 "image1"
+save_name = f"{name_without_ext}_output.png"  # 拼接成 "image1_output.png"
+
+# 保存路径
+save_path = os.path.join(dir_name, save_name)
+
+# 保存结果
+cv2.imwrite(save_path, out_np)
+print(f"Result saved to {save_path}")
