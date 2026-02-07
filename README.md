@@ -6,7 +6,7 @@
 
 ### Current version
 
-    v2.2 optimize: loss-curve for single training round & gitignore
+    v2.3 fix bugs: Weight matching error when loading .pth
 
 ### Underlying framework
 
@@ -37,6 +37,7 @@
 
 ### Historical version
 
+    v2.3 fix bugs: Weight matching error when loading .pth
     v2.2 optimize: loss-curve for single training round & gitignore
     v2.1 fix bugs: readme.md mixed in during data processing
     v2.0 Add "resume from breakpoint" function
