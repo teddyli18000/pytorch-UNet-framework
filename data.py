@@ -14,7 +14,15 @@ transform_img = transforms.Compose([
 class MyDataset(Dataset):
     def __init__(self, path):
         self.path = path
-        self.name = os.listdir(os.path.join(path, 'SegmentationClass'))
+        # --- 修改点：过滤 readme 和非图片文件 ---
+        raw_names = os.listdir(os.path.join(path, 'SegmentationClass'))
+        self.name = [
+            f for f in raw_names
+            if f.lower().endswith(('.png', '.jpg', '.jpeg'))  # 只保留图片后缀
+               and not f.lower().startswith('readme')  # 排除以 readme 开头的文件
+        ]
+        # 排序确保训练/验证集划分的稳定性
+        self.name.sort()
 
     def __len__(self):
         return len(self.name)
@@ -25,10 +33,15 @@ class MyDataset(Dataset):
 
         segment_path = os.path.join(self.path, 'SegmentationClass', segment_name)
 
-        # 优先找 .jpg，找不到找 .png
+        # First search for .jpg, then search for .png
         image_path = os.path.join(self.path, 'JPEGImages', name_without_ext + '.jpg')
         if not os.path.exists(image_path):
             image_path = os.path.join(self.path, 'JPEGImages', name_without_ext + '.png')
+
+            # --- Robust：If can't find the file, try to skip ---
+        if not os.path.exists(image_path):
+            print(f"Warning: Can't find file {name_without_ext}，tried to skip this.")
+            return self.__getitem__((index + 1) % len(self.name))
 
         # 1. 读取图片 (尺寸已经在 utils.py 中默认设为 512x384，这里显式传参更安全)
         img_pil = keep_image_size_open_rgb(image_path, size=(512, 384))
@@ -47,7 +60,11 @@ class MyDataset(Dataset):
 if __name__ == '__main__':
     # 自测代码
     data = MyDataset('data')
-    img, mask = data[0]
-    print(f"Image Shape: {img.shape}")
-    print(f"Mask Shape: {mask.shape}")
-    print(f"Unique classes in mask: {torch.unique(mask)}")
+    if len(data) > 0:
+        img, mask = data[0]
+        print(f"Effective data volume: {len(data)}")
+        print(f"Image Shape: {img.shape}")
+        print(f"Mask Shape: {mask.shape}")
+        print(f"Unique classes in mask: {torch.unique(mask)}")
+    else:
+        print("No valid data found. Please check the path.")
