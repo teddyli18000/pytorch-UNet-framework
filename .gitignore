@@ -145,3 +145,6 @@ pictures
 *.jpg
 *.jpeg
 *.png
+
+local version log
+*.txt

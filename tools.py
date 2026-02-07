@@ -21,9 +21,9 @@ class LossLogger:
 
     def _plot(self):
         plt.figure(figsize=(10, 5))
-        plt.plot(self.train_losses, label='Train Loss', color='blue', lw=2)
+        plt.plot(self.train_losses, label='Train Loss', color='blue', lw=2, marker='o')
         if self.val_losses:
-            plt.plot(self.val_losses, label='Val Loss', color='red', linestyle='--', lw=2)
+            plt.plot(self.val_losses, label='Val Loss', color='red', linestyle='--', lw=2, marker='x')
         plt.title('UNet Training Process')
         plt.xlabel('Epoch')
         plt.ylabel('Loss')
