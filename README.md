@@ -6,7 +6,8 @@
 
 ### Current version
 
-    v2.3 fix bugs: Weight matching error when loading .pth
+* **v2.0** - Add resume train function
+    - **v2.3 - fix:** Weight matching error when loading .pth
 
 ### Underlying framework
 
@@ -37,9 +38,15 @@
 
 ### Historical version
 
-    v2.3 fix bugs: Weight matching error when loading .pth
-    v2.2 optimize: loss-curve for single training round & gitignore
-    v2.1 fix bugs: readme.md mixed in during data processing
-    v2.0 Add "resume from breakpoint" function
+#### For major version update history, see ["version-log.md"](./version-log.md)
 
-    v1.0 Basic framework
+- **v2.3 - fix:** Weight matching error when loading .pth
+- **v2.2 - refactor:** Loss-curve for single training round & gitignore
+
+- **v2.1 - fix:** "readme.md" mixed in during data processing
+
+* **v2.0** - Add resume train function
+
+* **v1.0** - Main structure
+
+> [Back to Top](#Pytorch-UNet-framework)
