@@ -58,5 +58,7 @@ def get_split_loaders(dataset, batch_size=8, train_ratio=0.9):
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=4, pin_memory=True)
     val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True)
 
-    print(f"数据划分完成！总计: {dataset_size} | 训练集: {len(train_idx)} | 验证集: {len(val_idx)}")
+    print(
+        f"Data partitioning complete! "
+        f"Total: {dataset_size} | Training set: {len(train_idx)} | Validation set: {len(val_idx)}")
     return train_loader, val_loader

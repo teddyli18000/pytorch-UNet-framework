@@ -6,8 +6,7 @@
 
 ### Current version
 
-* **v2.0** - Add resume train function
-    - **v2.3 - fix:** Weight matching error when loading .pth
+* **v3.0 - feat:** Optimize the selection when saving result
 
 ### Underlying framework
 
@@ -33,12 +32,16 @@
    ##### (2).The "params" folder stores
        Weights
 4. #### Test
-       Run test.py file to test images.
-       Program store the test results in the source folder with the suffix "_predict".
+       Run test_single.py for one images (Supports custom/source save paths), 
+       Run test_multiple.py for multiple images in one folder.
+
+       Program store the results with the suffix "_predict".
 
 ### Historical version
 
 #### For major version update history, see ["version-log.md"](./version-log.md)
+
+- **v3.0 - feat:** Optimize the selection when saving result
 
 - **v2.3 - fix:** Weight matching error when loading .pth
 - **v2.2 - refactor:** Loss-curve for single training round & gitignore
