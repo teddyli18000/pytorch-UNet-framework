@@ -1,0 +1,64 @@
+v1.0 - feat: Main structure
+v2.0 - feat: Add resume train function
+v2.1 - fix: "readme.md" mixed in during data processing
+v2.2 - refactor: Loss-curve for single training round & gitignore
+v2.3 - fix: Weight matching error when loading .pth
+
+v3.0 - feat: Optimize result saving logic and add batch predicting
+
+
+
+feat: v4.0 - add train performance monitor
+
+todo: monitor
+
+
+
+以下是常用的类型及其含义：
+
+核心类型 (Core Types)
+fix: 修复 Bug（例如你刚才修复的 readme.png 读取报错或 test.py 权重加载报错）。
+
+feat: 引入新功能（例如你增加的“断点续传”功能）。
+
+开发流程与质量 (Quality & Process)
+docs: 仅文档改动（如修改 README、注释）。
+
+style: 格式化修改。不影响代码运行逻辑（如调整空格、缩进、删除多余的分号等）。
+
+refactor: 代码重构。既不修复 Bug 也不添加新功能，而是优化内部结构。
+
+perf: 性能优化（Performance）。旨在提高程序运行速度或减少内存占用。
+
+test: 增加或修改测试用例（如修改 MyDataset 下方的 if __name__ == '__main__': 自测代码）。
+
+工具与辅助 (Maintenance)
+chore: 日常事务。修改构建过程、安装依赖包或更改配置文件（不涉及核心业务逻辑）。
+
+build: 影响构建系统或外部依赖的更改（如修改 pip 依赖、setup.py）。
+
+ci: 修改 CI 配置文件和脚本（如 GitHub Actions, GitLab CI）。
+
+1. 跳转到外部文件 (你的需求)
+如果你想在 README.md 中链接到同目录下的 version-log 文件，语法如下：
+
+[显示文字](./文件名)
+
+写法： Check the [Version Log](./version-log) for details.
+
+注意： 如果你的文件有后缀名（如 version-log.md），请务必写全：[Version Log](./version-log.md)。
+
+2. 跳转到当前页面的特定标题 (锚点)
+如果你想点击一段话，直接跳到当前页面下方的某个 ## 标题，语法如下：
+
+[显示文字](#标题链接)
+
+规则： 标题链接必须全小写，空格用连字符 - 代替，且去掉特殊符号。
+
+示例：
+
+标题：## Historical Versions
+
+链接写法：[Go to History](#historical-versions)
+
+`xxx`

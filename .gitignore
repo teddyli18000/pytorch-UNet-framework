@@ -147,4 +147,6 @@ pictures
 *.png
 
 local version log
-*.txt
+#*.txt
+
+.idea
